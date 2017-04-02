@@ -4,12 +4,14 @@ package com.example.android.miwok;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,6 +45,14 @@ public class WordAdapter extends ArrayAdapter<Word>{
 
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         numberTextView.setText(currentWord.getDefaultWord());
+
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.image_view);
+
+        if(currentWord.getmImageresource() == 0)
+            iconView.setVisibility(View.GONE);
+        else
+            iconView.setImageResource(currentWord.getmImageresource());
+
 
         return listItemView;
     }
