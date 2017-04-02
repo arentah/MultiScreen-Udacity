@@ -8,19 +8,19 @@ import android.content.Context;
 
 public class Word {
 
-    private String miwokWord;
     private String defaultWord;
+    private String miwokWord;
 
-    public Word(String mMiwok, String mDefault){
+    public Word(String mDefault, String mMiwok){
         miwokWord = mMiwok;
         defaultWord = mDefault;
     }
 
-    public String getMiwokWord(Context context){
+    public String getMiwokWord(/*Context context*/){
         return miwokWord;
     }
 
-    public String getDefaultWord(Context context){
+    public String getDefaultWord(/*Context context*/){
         return defaultWord;
     }
 

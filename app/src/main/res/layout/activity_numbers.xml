@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list"
     android:orientation="vertical"
