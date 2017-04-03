@@ -8,9 +8,10 @@ import android.content.Context;
 
 public class Word {
 
+    private final int No_Image = -1;
     private String defaultWord;
     private String miwokWord;
-    private int mImageresource;
+    private int mImageresource = No_Image;
 
     public Word(String mDefault, String mMiwok, int ImageResource){
         miwokWord = mMiwok;
@@ -21,7 +22,6 @@ public class Word {
     public Word(String mDefault, String mMiwok){
         miwokWord = mMiwok;
         defaultWord = mDefault;
-        mImageresource = 0;
     }
 
     public String getMiwokWord(){
@@ -34,6 +34,10 @@ public class Word {
 
     public int getmImageresource(){
         return mImageresource;
+    }
+
+    public boolean hasImage(){
+        return mImageresource != No_Image;
     }
 
 }
