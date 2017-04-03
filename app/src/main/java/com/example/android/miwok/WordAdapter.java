@@ -4,6 +4,7 @@ package com.example.android.miwok;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,15 +23,15 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word>{
 
-    int color;
+    int resourceColor;
 
-    public WordAdapter(Activity context, ArrayList<Word> words, int color) {
+    public WordAdapter(Activity context, ArrayList<Word> words, int resourceColor) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, words);
-        this.color = color;
+        this.resourceColor = resourceColor;
     }
     @NonNull
     @Override
@@ -49,13 +50,18 @@ public class WordAdapter extends ArrayAdapter<Word>{
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         numberTextView.setText(currentWord.getDefaultWord());
 
-        LinearLayout linearLayout = (LinearLayout)listItemView.findViewById(R.id.horizontal_linear);
-        linearLayout.setBackgroundColor(getContext().getResources().getColor(color));
+//        LinearLayout linearLayout = (LinearLayout)listItemView.findViewById(R.id.horizontal_linear);
+//        linearLayout.setBackgroundColor(getContext().getResources().getColor(resourceColor));
+
+        View textContainer = listItemView.findViewById(R.id.horizontal_linear);
+        textContainer.setBackgroundColor(ContextCompat.getColor(getContext(),resourceColor));
 
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.image_view);
 
-        if(currentWord.hasImage())
+        if(currentWord.hasImage()) {
             iconView.setImageResource(currentWord.getmImageresource());
+            iconView.setVisibility(View.VISIBLE);
+        }
         else
             iconView.setVisibility(View.GONE);
 
